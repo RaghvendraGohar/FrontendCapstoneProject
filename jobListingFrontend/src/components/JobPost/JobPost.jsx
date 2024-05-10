@@ -51,6 +51,7 @@ export default function JobPost() {
     }
 
     const result = await createJobPost(formData);
+    
     if (result?.isTokenInValid) {
       localStorage.clear();
       navigate("/login");
