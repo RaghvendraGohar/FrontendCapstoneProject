@@ -50,12 +50,11 @@ export default function JobPost() {
       return;
     }
 
-    // const result =
-    await createJobPost(formData);
-    // if (result?.isTokenInValid) {
-    //   localStorage.clear();
-    //   navigate("/login");
-    // }
+    const result = await createJobPost(formData);
+    if (result?.isTokenInValid) {
+      localStorage.clear();
+      navigate("/login");
+    }
   };
 
   const addSkills = (event) => {

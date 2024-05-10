@@ -38,3 +38,17 @@ export const updateJobPostById = async (jobPostId, updatedFormData) => {
     alert("Something went wrong");
   }
 };
+
+export const getAllJobs = async (filter) => {
+  try {
+      const userId = JSON.parse(localStorage.getItem("userId")) || "";
+      const reqUrl = `${backendUrl}/all/${userId}?searchQuery=${
+          filter?.title || ""
+      }&skills=${filter?.skills || ""}`;
+      const response = await axios.get(reqUrl);
+      return response?.data;
+  } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
+  }
+};
